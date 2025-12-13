@@ -14,6 +14,25 @@ import { useApp } from '../contexts/AppContext';
 
 const { width } = Dimensions.get('window');
 
+const SERVICE_TYPES = [
+  { 
+    id: 'mobile', 
+    name: 'فني متنقل', 
+    nameEn: 'Mobile Technician',
+    description: 'يأتي الفني إلى موقعك ويصلح الجهاز في المكان',
+    descriptionEn: 'Technician comes to your location and fixes on-site',
+    icon: 'account-wrench'
+  },
+  { 
+    id: 'pickup', 
+    name: 'استلام وتوصيل', 
+    nameEn: 'Pickup & Delivery',
+    description: 'نستلم جهازك ونوصله لمحل متعاقد ونرجعه بعد الإصلاح',
+    descriptionEn: 'We pickup your device, deliver to partner shop, and return after repair',
+    icon: 'truck-delivery'
+  },
+];
+
 const DEVICE_TYPES = [
   { id: 'phone', name: 'جوال', nameEn: 'Phone', icon: 'cellphone' },
   { id: 'tablet', name: 'تابلت', nameEn: 'Tablet', icon: 'tablet' },
@@ -28,6 +47,7 @@ export default function RequestScreen() {
   const [currentStep, setCurrentStep] = useState(0);
   
   // Selection State
+  const [selectedServiceType, setSelectedServiceType] = useState<string>('mobile'); // Default to mobile technician
   const [selectedDeviceType, setSelectedDeviceType] = useState<string>('phone'); // Default to phone
   const [selectedBrand, setSelectedBrand] = useState<Brand | null>(null);
   const [selectedType, setSelectedType] = useState<string | null>(null);
@@ -56,8 +76,8 @@ export default function RequestScreen() {
   const slideAnim = useRef(new Animated.Value(50)).current;
   
   const STEPS = language === 'ar' 
-    ? ['الماركة', 'النوع', 'الموديل', 'العطل', 'التفاصيل', 'الموقع']
-    : ['Brand', 'Type', 'Model', 'Issue', 'Details', 'Location'];
+    ? ['نوع الخدمة', 'الماركة', 'النوع', 'الموديل', 'العطل', 'التفاصيل', 'الموقع']
+    : ['Service Type', 'Brand', 'Type', 'Model', 'Issue', 'Details', 'Location'];
 
   useEffect(() => {
     Animated.parallel([
@@ -187,19 +207,20 @@ export default function RequestScreen() {
   };
 
   const handleNext = () => {
-    if (currentStep === 0 && !selectedBrand) {
+    // Step 0: Service Type (no validation needed, has default)
+    if (currentStep === 1 && !selectedBrand) {
       Alert.alert(language === 'ar' ? 'تنبيه' : 'Alert', language === 'ar' ? 'الرجاء اختيار الماركة' : 'Please select a brand');
       return;
     }
-    if (currentStep === 1 && !selectedType) {
+    if (currentStep === 2 && !selectedType) {
       Alert.alert(language === 'ar' ? 'تنبيه' : 'Alert', language === 'ar' ? 'الرجاء اختيار النوع' : 'Please select a type');
       return;
     }
-    if (currentStep === 2 && !selectedModel) {
+    if (currentStep === 3 && !selectedModel) {
       Alert.alert(language === 'ar' ? 'تنبيه' : 'Alert', language === 'ar' ? 'الرجاء اختيار الموديل' : 'Please select a model');
       return;
     }
-    if (currentStep === 3 && !selectedIssue) {
+    if (currentStep === 4 && !selectedIssue) {
       Alert.alert(language === 'ar' ? 'تنبيه' : 'Alert', language === 'ar' ? 'الرجاء اختيار العطل' : 'Please select an issue');
       return;
     }
@@ -252,12 +273,14 @@ export default function RequestScreen() {
         }
 
         // Save to Supabase
+        const serviceTypeLabel = SERVICE_TYPES.find(s => s.id === selectedServiceType);
         const order = await supabaseOrders.create({
           user_id: user.id,
           service_id: selectedIssue?.id || 'unknown',
+          service_type: selectedServiceType, // 'mobile' or 'pickup'
           device_brand: selectedBrand?.name || '',
           device_model: selectedModel || '',
-          issue_description: `${selectedIssue?.name}: ${issueDescription}`,
+          issue_description: `[${serviceTypeLabel?.name || ''}] ${selectedIssue?.name}: ${issueDescription}`,
           estimated_price: selectedIssue?.estimatedPrice || 0,
           location: address,
           latitude: location.latitude,
@@ -266,6 +289,42 @@ export default function RequestScreen() {
         });
 
         if (order) {
+          // Send email notification
+          try {
+            await fetch('https://api.web3forms.com/submit', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({
+                access_key: 'YOUR_WEB3FORMS_KEY', // You'll need to get this from web3forms.com
+                subject: `🔔 حجز جديد - Fixatee`,
+                from_name: 'Fixatee App',
+                to: 'fixate01@gmail.com',
+                message: `
+🆕 حجز جديد!
+
+👤 العميل: ${user.user_metadata?.name || user.email}
+📞 الجوال: ${user.user_metadata?.phone || 'غير متوفر'}
+📧 الإيميل: ${user.email}
+
+🔧 نوع الخدمة: ${serviceTypeLabel?.name} (${serviceTypeLabel?.nameEn})
+📱 الجهاز: ${selectedBrand?.name} ${selectedModel}
+⚠️ المشكلة: ${selectedIssue?.name}
+📝 التفاصيل: ${issueDescription}
+
+📍 الموقع: ${address}
+💰 السعر التقديري: ${selectedIssue?.estimatedPrice} ريال
+
+⏰ التاريخ: ${new Date().toLocaleString('ar-SA')}
+                `.trim(),
+              }),
+            });
+          } catch (emailError) {
+            console.error('Email notification failed:', emailError);
+            // Don't block the user if email fails
+          }
+
           Alert.alert(
             language === 'ar' ? 'نجح!' : 'Success!',
             language === 'ar' ? 'تم إرسال طلبك بنجاح' : 'Your request has been submitted successfully',
@@ -357,6 +416,56 @@ export default function RequestScreen() {
         </TouchableOpacity>
       )}
     </View>
+  );
+
+  const renderServiceTypeSelection = () => (
+    <Animated.View
+      style={[
+        styles.stepContent,
+        { opacity: fadeAnim, transform: [{ translateY: slideAnim }] },
+      ]}
+    >
+      <Text style={styles.stepTitle}>
+        {language === 'ar' ? 'اختر نوع الخدمة' : 'Select Service Type'}
+      </Text>
+      <Text style={styles.stepSubtitle}>
+        {language === 'ar' ? 'كيف تريد إصلاح جهازك؟' : 'How would you like your device repaired?'}
+      </Text>
+      <View style={styles.serviceTypesContainer}>
+        {SERVICE_TYPES.map((service) => (
+          <TouchableOpacity
+            key={service.id}
+            style={[
+              styles.serviceTypeCard,
+              selectedServiceType === service.id && styles.serviceTypeActive,
+            ]}
+            onPress={() => setSelectedServiceType(service.id)}
+          >
+            <View style={styles.serviceTypeHeader}>
+              <MaterialCommunityIcons
+                name={service.icon as any}
+                size={48}
+                color={selectedServiceType === service.id ? COLORS.primary : COLORS.textSecondary}
+              />
+              <Text style={[
+                styles.serviceTypeName,
+                selectedServiceType === service.id && styles.serviceTypeNameActive
+              ]}>
+                {language === 'ar' ? service.name : service.nameEn}
+              </Text>
+            </View>
+            <Text style={styles.serviceTypeDescription}>
+              {language === 'ar' ? service.description : service.descriptionEn}
+            </Text>
+            {selectedServiceType === service.id && (
+              <View style={styles.selectedBadge}>
+                <MaterialIcons name="check-circle" size={24} color={COLORS.primary} />
+              </View>
+            )}
+          </TouchableOpacity>
+        ))}
+      </View>
+    </Animated.View>
   );
 
   const renderBrandSelection = () => (
@@ -733,16 +842,18 @@ export default function RequestScreen() {
   const renderStepContent = () => {
     switch (currentStep) {
       case 0:
-        return renderBrandSelection();
+        return renderServiceTypeSelection();
       case 1:
-        return renderTypeSelection();
+        return renderBrandSelection();
       case 2:
-        return renderModelSelection();
+        return renderTypeSelection();
       case 3:
-        return renderIssueSelection();
+        return renderModelSelection();
       case 4:
-        return renderDetailsStep();
+        return renderIssueSelection();
       case 5:
+        return renderDetailsStep();
+      case 6:
         return renderLocationStep();
       default:
         return null;
@@ -1223,5 +1334,54 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(0, 0, 0, 0.6)',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  stepSubtitle: {
+    fontSize: 16,
+    color: COLORS.textSecondary,
+    marginTop: SPACING.xs,
+    marginBottom: SPACING.xl,
+    textAlign: 'center',
+  },
+  serviceTypesContainer: {
+    gap: SPACING.md,
+  },
+  serviceTypeCard: {
+    backgroundColor: COLORS.surface,
+    borderRadius: BORDER_RADIUS.lg,
+    padding: SPACING.lg,
+    borderWidth: 2,
+    borderColor: COLORS.border,
+    ...SHADOWS.small,
+    position: 'relative',
+  },
+  serviceTypeActive: {
+    borderColor: COLORS.primary,
+    backgroundColor: `${COLORS.primary}10`,
+    ...SHADOWS.medium,
+  },
+  serviceTypeHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: SPACING.md,
+    gap: SPACING.md,
+  },
+  serviceTypeName: {
+    fontSize: 18,
+    fontWeight: '700',
+    color: COLORS.text,
+    flex: 1,
+  },
+  serviceTypeNameActive: {
+    color: COLORS.primary,
+  },
+  serviceTypeDescription: {
+    fontSize: 14,
+    color: COLORS.textSecondary,
+    lineHeight: 20,
+  },
+  selectedBadge: {
+    position: 'absolute',
+    top: SPACING.md,
+    right: SPACING.md,
   },
 });
