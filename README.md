@@ -68,6 +68,38 @@
 
 ---
 
+## 🎯 Service Options
+
+We offer two flexible service modes to meet different repair needs:
+
+### 🔧 Mobile Technician
+**On-Site Repair Service**
+- Professional technician comes to your location (home, office, anywhere)
+- Repairs performed on-site using fully-equipped mobile van
+- **Best for**: Simple to moderate repairs (screen, battery, charging port, audio)
+- **Timeline**: Same day or scheduled appointment
+- **Benefits**: 
+  - ⚡ Fast service
+  - 📍 Real-time technician tracking
+  - 🏠 Convenience of home service
+  - 👁️ Watch the repair process
+
+### 🚚 Pickup & Delivery
+**Workshop Repair Service**
+- Courier picks up your device from your location
+- Device delivered to specialized partner workshop
+- Professional repair with advanced equipment
+- Courier returns device after completion
+- **Best for**: Complex repairs (motherboard, processor, water damage, precision work)
+- **Timeline**: 1-3 days depending on repair complexity
+- **Benefits**:
+  - 🔧 Professional workshop equipment
+  - 🛡️ Extended warranty
+  - 💰 Competitive pricing
+  - 🏭 Access to specialized parts
+
+---
+
 ## 🚀 Market Opportunity
 
 ### Target Market
@@ -199,6 +231,38 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 | 💼 **ملف احترافي** | اعرض خبرتك وتقييماتك |
 | 🔔 **إشعارات فورية** | لا تفوت أي فرصة جديدة |
 | 📈 **تحليلات الأداء** | تتبع وظائفك المكتملة وأرباحك |
+
+---
+
+## 🎯 خيارات الخدمة
+
+نوفر خيارين مرنين لتلبية احتياجات الإصلاح المختلفة:
+
+### 🔧 فني متنقل
+**خدمة الإصلاح في المكان**
+- يأتي الفني المحترف إلى موقعك (منزل، مكتب، أي مكان)
+- يتم الإصلاح في المكان باستخدام عربة مجهزة بالكامل
+- **مثالي لـ**: الإصلاحات البسيطة والمتوسطة (شاشة، بطارية، منفذ شحن، صوت)
+- **الوقت**: نفس اليوم أو موعد محدد
+- **المميزات**:
+  - ⚡ خدمة سريعة
+  - 📍 تتبع مباشر للفني
+  - 🏠 راحة الخدمة المنزلية
+  - 👁️ مشاهدة عملية الإصلاح
+
+### 🚚 استلام وتوصيل
+**خدمة الإصلاح في الورشة**
+- مندوب يستلم جهازك من موقعك
+- يتم توصيل الجهاز إلى ورشة متخصصة متعاقدة
+- إصلاح احترافي بمعدات متقدمة
+- المندوب يرجع الجهاز بعد الإنتهاء
+- **مثالي لـ**: الإصلاحات المعقدة (لوحة أم، معالج، ضرر الماء، أعمال دقيقة)
+- **الوقت**: 1-3 أيام حسب تعقيد الإصلاح
+- **المميزات**:
+  - 🔧 معدات ورشة احترافية
+  - 🛡️ ضمان ممتد
+  - 💰 أسعار تنافسية
+  - 🏭 الوصول لقطع غيار متخصصة
 
 ---
 
