@@ -66,6 +66,9 @@ A mobile app (iOS & Android) that enables:
 - 13% Working Capital
 
 **12-Month Milestones**:
+- Launch in Dammam (Q1) - Test market
+- Expand to Eastern Province (Q2)
+- Enter Riyadh & Jeddah (Q3)
 - 500 active technicians
 - 5,000 customers
 - 10,000 orders/month

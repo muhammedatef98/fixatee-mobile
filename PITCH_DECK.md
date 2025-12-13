@@ -57,10 +57,11 @@
 
 ### Geographic Focus
 
-- **Phase 1**: Riyadh, Jeddah (Q1 2025)
-- **Phase 2**: Dammam, Mecca, Medina (Q2 2025)
-- **Phase 3**: All Saudi cities (Q3-Q4 2025)
-- **Phase 4**: GCC expansion (2026)
+- **Phase 1**: Dammam (Q1 2025) - Perfect test market
+- **Phase 2**: Khobar, Dhahran (Q2 2025) - Eastern Province expansion
+- **Phase 3**: Riyadh, Jeddah (Q3 2025) - Major cities after proven model
+- **Phase 4**: All Saudi cities (Q4 2025)
+- **Phase 5**: GCC expansion (2026) - Bahrain, Kuwait, UAE
 
 ---
 
