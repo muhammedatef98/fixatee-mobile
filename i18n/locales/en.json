@@ -1,0 +1,177 @@
+{
+  "common": {
+    "next": "Next",
+    "back": "Back",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "done": "Done",
+    "skip": "Skip",
+    "save": "Save",
+    "edit": "Edit",
+    "delete": "Delete",
+    "search": "Search",
+    "filter": "Filter",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "retry": "Retry"
+  },
+  "app": {
+    "name": "Fixate",
+    "tagline": "Your Trusted Repair Partner"
+  },
+  "roleSelection": {
+    "title": "How would you like to use the app?",
+    "customer": "Customer",
+    "customerDesc": "Looking for repair services for my devices",
+    "technician": "Technician",
+    "technicianDesc": "Provide repair services and receive requests",
+    "terms": "By continuing, you agree to",
+    "termsLink": "Terms of Service",
+    "and": "and",
+    "privacyLink": "Privacy Policy"
+  },
+  "home": {
+    "welcome": "Welcome",
+    "subtitle": "How can we help you today?",
+    "requestRepair": "Request Repair",
+    "priceCalculator": "Price Calculator",
+    "myRequests": "My Requests",
+    "profile": "Profile",
+    "services": "Our Services",
+    "phoneRepair": "Phone Repair",
+    "laptopRepair": "Laptop Repair",
+    "tabletRepair": "Tablet Repair",
+    "watchRepair": "Watch Repair",
+    "specialOffer": "Special Offer",
+    "discount20": "20% off your first order"
+  },
+  "request": {
+    "title": "New Repair Request",
+    "step1": "Select Brand",
+    "step2": "Select Device Type",
+    "step3": "Select Model",
+    "step4": "Select Issue",
+    "step5": "Describe the Problem",
+    "step6": "Location",
+    "brands": {
+      "apple": "Apple",
+      "samsung": "Samsung",
+      "huawei": "Huawei",
+      "xiaomi": "Xiaomi"
+    },
+    "deviceTypes": {
+      "phone": "Phone",
+      "tablet": "Tablet",
+      "laptop": "Laptop",
+      "watch": "Watch"
+    },
+    "issues": {
+      "screen": "Broken Screen",
+      "battery": "Weak Battery",
+      "charging": "Charging Issue",
+      "camera": "Camera Not Working",
+      "speaker": "Speaker Not Working",
+      "water": "Water Damage",
+      "software": "Software Issue",
+      "other": "Other Issue"
+    },
+    "descriptionPlaceholder": "Describe the problem in detail...",
+    "descriptionHint": "Example: Screen is cracked on the left side and touch is not working",
+    "useCurrentLocation": "Use Current Location",
+    "enterManually": "Enter Address Manually",
+    "addressPlaceholder": "Enter your address...",
+    "estimatedPrice": "Estimated Price",
+    "submitSuccess": "Request Received Successfully ✓",
+    "submitMessage": "A specialized technician will contact you as soon as possible.",
+    "uploadPhoto": "Add Device Photo",
+    "photoOptional": "(Optional)"
+  },
+  "calculator": {
+    "title": "Price Calculator",
+    "subtitle": "Get instant repair cost estimate",
+    "selectDevice": "Select Your Device",
+    "selectIssue": "Select Issue",
+    "calculate": "Calculate Price",
+    "estimatedCost": "Estimated Cost",
+    "sar": "SAR",
+    "disclaimer": "* Prices are estimates and may vary based on device condition"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "newRequests": "New Requests",
+    "inProgress": "In Progress",
+    "completed": "Completed",
+    "earnings": "Earnings",
+    "rating": "Rating",
+    "noRequests": "No new requests",
+    "viewDetails": "View Details",
+    "accept": "Accept",
+    "reject": "Reject"
+  },
+  "profile": {
+    "title": "Profile",
+    "editProfile": "Edit Profile",
+    "language": "Language",
+    "theme": "Theme",
+    "notifications": "Notifications",
+    "help": "Help",
+    "about": "About",
+    "logout": "Logout",
+    "version": "Version"
+  },
+  "settings": {
+    "language": {
+      "title": "Language",
+      "arabic": "العربية",
+      "english": "English"
+    },
+    "theme": {
+      "title": "Theme",
+      "light": "Light",
+      "dark": "Dark",
+      "system": "System"
+    }
+  },
+  "notifications": {
+    "title": "Notifications",
+    "newRequest": "New Request",
+    "requestAccepted": "Request Accepted",
+    "requestCompleted": "Request Completed",
+    "noNotifications": "No notifications"
+  },
+  "chat": {
+    "title": "Chat",
+    "typePlaceholder": "Type a message...",
+    "send": "Send",
+    "online": "Online",
+    "offline": "Offline",
+    "typing": "Typing..."
+  },
+  "rating": {
+    "title": "Rate Service",
+    "rateExperience": "How was your experience?",
+    "comment": "Add a comment (optional)",
+    "submit": "Submit Rating",
+    "thankYou": "Thank you for your feedback!"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "phone": "Phone",
+    "email": "Email",
+    "callUs": "Call Us",
+    "emailUs": "Email Us",
+    "chatBot": "Chat with Support Bot",
+    "workingHours": "Working Hours",
+    "workingHoursValue": "24/7 Available",
+    "location": "Location",
+    "locationValue": "Saudi Arabia"
+  },
+  "about": {
+    "title": "About Fixate",
+    "description": "Fixate is your trusted partner for professional device repair services. We connect customers with certified technicians for fast, reliable repairs.",
+    "version": "Version",
+    "termsOfService": "Terms of Service",
+    "privacyPolicy": "Privacy Policy"
+  }
+}

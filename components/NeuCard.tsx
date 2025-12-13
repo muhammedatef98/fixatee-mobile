@@ -1,0 +1,59 @@
+import React from 'react';
+import { View, StyleSheet, ViewStyle, TouchableOpacity } from 'react-native';
+import { COLORS, SPACING, BORDER_RADIUS, SHADOWS } from '../constants/theme';
+
+interface NeuCardProps {
+  children: React.ReactNode;
+  style?: ViewStyle;
+  onPress?: () => void;
+  variant?: 'flat' | 'pressed' | 'elevated';
+}
+
+export default function NeuCard({ 
+  children, 
+  style, 
+  onPress,
+  variant = 'flat' 
+}: NeuCardProps) {
+  const cardStyles = [
+    styles.base,
+    variant === 'flat' && styles.flat,
+    variant === 'pressed' && styles.pressed,
+    variant === 'elevated' && styles.elevated,
+    style,
+  ];
+
+  if (onPress) {
+    return (
+      <TouchableOpacity 
+        style={cardStyles} 
+        onPress={onPress}
+        activeOpacity={0.95}
+      >
+        {children}
+      </TouchableOpacity>
+    );
+  }
+
+  return <View style={cardStyles}>{children}</View>;
+}
+
+const styles = StyleSheet.create({
+  base: {
+    backgroundColor: COLORS.background,
+    borderRadius: BORDER_RADIUS.xxl,
+    padding: SPACING.md,
+  },
+  flat: {
+    ...SHADOWS.neuFlat,
+  },
+  pressed: {
+    // Inset shadow effect (simulated with border)
+    borderWidth: 1,
+    borderColor: COLORS.shadowDark,
+  },
+  elevated: {
+    backgroundColor: COLORS.white,
+    ...SHADOWS.medium,
+  },
+});

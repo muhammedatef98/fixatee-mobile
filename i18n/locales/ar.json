@@ -1,0 +1,158 @@
+{
+  "common": {
+    "next": "التالي",
+    "back": "رجوع",
+    "confirm": "تأكيد",
+    "cancel": "إلغاء",
+    "done": "تم",
+    "skip": "تخطي",
+    "save": "حفظ",
+    "edit": "تعديل",
+    "delete": "حذف",
+    "search": "بحث",
+    "filter": "تصفية",
+    "loading": "جاري التحميل...",
+    "error": "خطأ",
+    "success": "نجح",
+    "retry": "إعادة المحاولة"
+  },
+  "app": {
+    "name": "Fixate",
+    "tagline": "شريكك الموثوق للصيانة"
+  },
+  "roleSelection": {
+    "title": "كيف تود استخدام التطبيق؟",
+    "customer": "عميل",
+    "customerDesc": "أبحث عن خدمات صيانة لأجهزتي",
+    "technician": "فني صيانة",
+    "technicianDesc": "أقدم خدمات الصيانة وأستقبل الطلبات",
+    "terms": "بالمتابعة، أنت توافق على",
+    "termsLink": "شروط الخدمة",
+    "and": "و",
+    "privacyLink": "سياسة الخصوصية"
+  },
+  "home": {
+    "welcome": "مرحباً",
+    "subtitle": "كيف يمكننا مساعدتك اليوم؟",
+    "requestRepair": "طلب صيانة",
+    "priceCalculator": "حاسبة الأسعار",
+    "myRequests": "طلباتي",
+    "profile": "الملف الشخصي",
+    "services": "خدماتنا",
+    "phoneRepair": "صيانة الهواتف",
+    "laptopRepair": "صيانة اللابتوب",
+    "tabletRepair": "صيانة التابلت",
+    "watchRepair": "صيانة الساعات",
+    "specialOffer": "عرض خاص",
+    "discount20": "خصم 20% على أول طلب"
+  },
+  "request": {
+    "title": "طلب صيانة جديد",
+    "step1": "اختر العلامة التجارية",
+    "step2": "اختر نوع الجهاز",
+    "step3": "اختر الموديل",
+    "step4": "اختر المشكلة",
+    "step5": "وصف المشكلة",
+    "step6": "الموقع",
+    "brands": {
+      "apple": "Apple",
+      "samsung": "Samsung",
+      "huawei": "Huawei",
+      "xiaomi": "Xiaomi"
+    },
+    "deviceTypes": {
+      "phone": "هاتف",
+      "tablet": "تابلت",
+      "laptop": "لابتوب",
+      "watch": "ساعة"
+    },
+    "issues": {
+      "screen": "شاشة مكسورة",
+      "battery": "بطارية ضعيفة",
+      "charging": "مشكلة في الشحن",
+      "camera": "كاميرا لا تعمل",
+      "speaker": "سماعة لا تعمل",
+      "water": "تعرض للماء",
+      "software": "مشكلة برمجية",
+      "other": "مشكلة أخرى"
+    },
+    "descriptionPlaceholder": "اشرح المشكلة بالتفصيل...",
+    "descriptionHint": "مثال: الشاشة مكسورة من الجانب الأيسر واللمس لا يعمل",
+    "useCurrentLocation": "استخدام موقعي الحالي",
+    "enterManually": "إدخال العنوان يدوياً",
+    "addressPlaceholder": "أدخل عنوانك...",
+    "estimatedPrice": "السعر التقديري",
+    "submitSuccess": "تم استلام طلبك بنجاح ✓",
+    "submitMessage": "سيتواصل معك أحد الفنيين المتخصصين في أقرب وقت ممكن.",
+    "uploadPhoto": "إضافة صورة للجهاز",
+    "photoOptional": "(اختياري)"
+  },
+  "calculator": {
+    "title": "حاسبة الأسعار",
+    "subtitle": "احصل على تقدير فوري لتكلفة الصيانة",
+    "selectDevice": "اختر جهازك",
+    "selectIssue": "اختر المشكلة",
+    "calculate": "احسب السعر",
+    "estimatedCost": "التكلفة التقديرية",
+    "sar": "ريال",
+    "disclaimer": "* الأسعار تقديرية وقد تختلف حسب حالة الجهاز"
+  },
+  "dashboard": {
+    "title": "لوحة التحكم",
+    "newRequests": "طلبات جديدة",
+    "inProgress": "قيد التنفيذ",
+    "completed": "مكتملة",
+    "earnings": "الأرباح",
+    "rating": "التقييم",
+    "noRequests": "لا توجد طلبات جديدة",
+    "viewDetails": "عرض التفاصيل",
+    "accept": "قبول",
+    "reject": "رفض"
+  },
+  "profile": {
+    "title": "الملف الشخصي",
+    "editProfile": "تعديل الملف الشخصي",
+    "language": "اللغة",
+    "theme": "المظهر",
+    "notifications": "الإشعارات",
+    "help": "المساعدة",
+    "about": "عن التطبيق",
+    "logout": "تسجيل الخروج",
+    "version": "الإصدار"
+  },
+  "settings": {
+    "language": {
+      "title": "اللغة",
+      "arabic": "العربية",
+      "english": "English"
+    },
+    "theme": {
+      "title": "المظهر",
+      "light": "فاتح",
+      "dark": "داكن",
+      "system": "حسب النظام"
+    }
+  },
+  "notifications": {
+    "title": "الإشعارات",
+    "newRequest": "طلب جديد",
+    "requestAccepted": "تم قبول طلبك",
+    "requestCompleted": "تم إكمال الطلب",
+    "noNotifications": "لا توجد إشعارات"
+  },
+  "chat": {
+    "title": "الدردشة",
+    "typePlaceholder": "اكتب رسالة...",
+    "send": "إرسال",
+    "online": "متصل",
+    "offline": "غير متصل",
+    "typing": "يكتب..."
+  },
+  "rating": {
+    "title": "تقييم الخدمة",
+    "rateExperience": "كيف كانت تجربتك؟",
+    "comment": "أضف تعليقاً (اختياري)",
+    "submit": "إرسال التقييم",
+    "thankYou": "شكراً لتقييمك!"
+  }
+}
