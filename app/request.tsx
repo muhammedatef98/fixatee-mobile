@@ -297,7 +297,7 @@ export default function RequestScreen() {
                 'Content-Type': 'application/json',
               },
               body: JSON.stringify({
-                access_key: 'YOUR_WEB3FORMS_KEY', // You'll need to get this from web3forms.com
+                access_key: 'd3ff12a4-e013-473f-8730-9d5760059a64',
                 subject: `🔔 حجز جديد - Fixatee`,
                 from_name: 'Fixatee App',
                 to: 'fixate01@gmail.com',
